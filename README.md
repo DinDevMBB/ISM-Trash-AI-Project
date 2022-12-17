@@ -1,0 +1,1 @@
+# ISM-Trash-AI-Project
