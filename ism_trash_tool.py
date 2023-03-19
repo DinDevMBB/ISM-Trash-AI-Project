@@ -14,8 +14,15 @@ st.markdown(
     "### Predict detected waste and littering in an image",
     unsafe_allow_html=True,
 )
+st.markdown(
+    "### Example:",
+    unsafe_allow_html=True,
+)
 
 with open("Image #1-A.jpg", "rb") as f:
+    st.image(f.read(), use_column_width=True)
+
+with open("mock_example.jpg", "rb") as f:
     st.image(f.read(), use_column_width=True)
 
 st.text("Upload an image to recieve output")
@@ -33,4 +40,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
