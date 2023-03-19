@@ -4,7 +4,7 @@
 # In[ ]:
 
 import io
-
+from PIL import Image
 import numpy as np
 import requests
 import streamlit as st
@@ -19,16 +19,20 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-with open("Image #1-A.jpg", "rb") as f:
-    with open("mock_example.jpg", "rb") as g:
-        st.image([f.read(), g.read()])
+col1, col2 = st.columns(2)
 
-with open("mock_example.jpg", "rb") as f:
-    st.image(f.read(), use_column_width=True)
+before = Image.open("Image #1-A.jpg")
+col1.header("Input")
+col1.image(before, use_column_width=True)
+
+after = Image.open("mock_example.jpg")
+col2.header("Prediction Output")
+col2.image(after, use_column_width=True)
+# with open("Image #1-A.jpg", "rb") as f:
+#     with open("mock_example.jpg", "rb") as g:
+#         st.image([f.read(), g.read()])
 
 st.text("Upload an image to recieve output")
-
-from PIL import Image
 
 
 def main():
