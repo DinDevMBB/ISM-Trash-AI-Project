@@ -21,7 +21,7 @@ st.markdown(
 
 with open("Image #1-A.jpg", "rb") as f:
     with open("mock_example.jpg", "rb") as g:
-        st.image([f.read(), g.read()], use_column_width=True)
+        st.image([f.read(), g.read()])
 
 with open("mock_example.jpg", "rb") as f:
     st.image(f.read(), use_column_width=True)
