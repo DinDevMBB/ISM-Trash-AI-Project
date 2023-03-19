@@ -32,11 +32,9 @@ col2.image(after, use_column_width=True)
 #     with open("mock_example.jpg", "rb") as g:
 #         st.image([f.read(), g.read()])
 
-st.text("Upload an image to recieve output")
-
 
 def main():
-    img_file = st.file_uploader("Upload", type=["jpg", "png"])
+    img_file = st.file_uploader("Upload an image to recieve output", type=["jpg", "png"])
     if img_file is not None:
 
         with st.spinner("Predicting..."):
