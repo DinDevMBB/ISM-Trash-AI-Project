@@ -22,11 +22,11 @@ st.markdown(
 col1, col2 = st.columns(2)
 
 before = Image.open("Image #1-A.jpg")
-col1.header("### Input")
+col1.caption("Input")
 col1.image(before, use_column_width=True)
 
 after = Image.open("mock_example.jpg")
-col2.header("### Prediction Output")
+col2.caption("Prediction Output")
 col2.image(after, use_column_width=True)
 # with open("Image #1-A.jpg", "rb") as f:
 #     with open("mock_example.jpg", "rb") as g:
