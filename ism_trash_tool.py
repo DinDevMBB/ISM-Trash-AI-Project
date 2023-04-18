@@ -11,9 +11,7 @@ from io import BytesIO
 import numpy as np
 import requests
 import streamlit as st
-st.set_page_config(layout="wide")
-st.title("Environmental Waste Detection Through Neural Networks")
-    
+st.set_page_config(page_title ="Environmental Waste Detection", layout="wide")  
 def main():
     img_file = st.sidebar.file_uploader("Upload an image to recieve output", type=["jpg", "png", "jpeg"])
     st.sidebar.write('Find additional images to test with here')
