@@ -47,7 +47,7 @@ def main():
     col2.caption("Prediction Output")
     col2.image(image, use_column_width=True)
     st.divider()
-    
+    st.markdown("Instructions for finding your own image")
 
 if __name__ == "__main__":
     main()
