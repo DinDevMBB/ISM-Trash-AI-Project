@@ -4,7 +4,10 @@
 # In[ ]:
 
 import io
+import base64
 from PIL import Image
+from base64 import decodebytes
+from io import BytesIO
 import numpy as np
 import requests
 import streamlit as st
@@ -14,31 +17,46 @@ st.markdown(
     "### Predict detected waste and littering in an image",
     unsafe_allow_html=True,
 )
-st.markdown(
-    "### Example:",
-    unsafe_allow_html=True,
-)
-
-col1, col2 = st.columns(2)
-
-before = Image.open("Image #1-A.jpg")
-col1.caption("Input")
-col1.image(before, use_column_width=True)
-
-after = Image.open("mock_example.jpg")
-col2.caption("Prediction Output")
-col2.image(after, use_column_width=True)
-# with open("Image #1-A.jpg", "rb") as f:
-#     with open("mock_example.jpg", "rb") as g:
-#         st.image([f.read(), g.read()])
-
-
+    
 def main():
-    img_file = st.file_uploader("Upload an image to recieve output", type=["jpg", "png"])
+    img_file = st.sidebar.file_uploader("Upload an image to recieve output", type=["jpg", "png", "jpeg"])
+    st.sidebar.write('Find additional images to test with here')
+    confidence_threshold = st.sidebar.slider('Confidence threshold: What is the minimum acceptable confidence level for displaying a bounding box?', 0, 100, 50, 1)
+    overlap_threshold = st.sidebar.slider('Overlap threshold: What is the maximum amount of overlap permitted between visible bounding boxes?', 0, 100, 50, 1)
+    st.write('### Predicted Waste')
     if img_file is not None:
-
-        with st.spinner("Predicting..."):
+        with st.spinner("Uploading..."):
             st.success(f"Your file has been uploaded and processed successfully!")
+        image = Image.open(img_file).resize(640, 640)
+    else:
+        url = 'https://github.com/1Dragon-Lord1/ISM-Trash-AI-Project/blob/main/Image%20%231-A.jpg'
+        image = Image.open(requests.get(url, stream = True).raw).resize(640, 640)
+    buffered = io.BytesIO()
+    image.save(buffered, quality = 90, format = 'JPEG')
+    img_str = base64.b64encode(buffered.getvalue())
+    img_str = img_str.decode('ascii')
+    upload_url = ''.join['https://detect.roboflow.com//waste-detection-vnfx1/2?api_key=', 
+                         st.secrets["api_key"],
+                         '&format=image',
+                         f'&overlap={overlap_threshold}',
+                         f'&confidence={confidence_threshold}',
+                         '&stroke=2',
+                         '&labels=True']
+    r = requests.post(upload_url, data = img_str, headers = {'Content-Type': 'application/x-www-form-urlencoded'})
+    image = Image.open(BytesIO(r.content))
+    buffered = io.BytesIO()
+    image.save(buffered, quality=90, format='JPEG')
+    st.image(image, use_column_width=True)
+    upload_url = ''.join(['https://detect.roboflow.com//waste-detection-vnfx1/2?api_key=', 
+                         st.secrets["api_key"]])
+    r = requests.post(upload_url, data = img_str, headers = {'Content-Type': 'application/x-www-form-urlencoded'})
+    output_dict = r.json();
+    confidences = [box['confidence'] for box in output_dict['predictions']]
+
+
+# infer on an image hosted elsewhere
+# print(model.predict("URL_OF_YOUR_IMAGE", hosted=True, confidence=40, overlap=30).json())
+        
 
 
 if __name__ == "__main__":
