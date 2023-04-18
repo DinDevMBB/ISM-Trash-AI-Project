@@ -11,7 +11,7 @@ from io import BytesIO
 import numpy as np
 import requests
 import streamlit as st
-
+st.set_page_config(layout="wide")
 st.title("Environmental Waste Detection Through Neural Networks")
     
 def main():
