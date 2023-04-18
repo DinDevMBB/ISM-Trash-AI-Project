@@ -13,7 +13,6 @@ import requests
 import streamlit as st
 st.set_page_config(layout="wide")
 st.title("Environmental Waste Detection Through Neural Networks")
-    
 def main():
     img_file = st.sidebar.file_uploader("Upload an image to recieve output", type=["jpg", "png", "jpeg"])
     st.sidebar.write('Find additional images to test with here')
