@@ -46,11 +46,8 @@ def main():
     image.save(buffered, quality=90, format='JPEG')
     col2.caption("Prediction Output")
     col2.image(image, use_column_width=True)
-    #upload_url = ''.join(['https://detect.roboflow.com//waste-detection-vnfx1/2?api_key=', 
-                         #st.secrets["api_key"]])
-    #r = requests.post(upload_url, data = img_str, headers = {'Content-Type': 'application/x-www-form-urlencoded'})
-    #output_dict = r.json();
-    #confidences = [box['confidence'] for box in output_dict['predictions']]
+    st.divider()
+    
 
 if __name__ == "__main__":
     main()
