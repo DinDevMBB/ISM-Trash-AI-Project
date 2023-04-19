@@ -25,7 +25,7 @@ def main():
     st.title("Environmental Waste Detection Through Neural Networks")
     image = None
     paths, image_names = create_array()
-    tab1, tab2, tab3 = st.tabs(["Home", "Find your own image", "Help & Contact"])
+    tab1, tab2, tab3 = st.tabs(["Model", "Find your own image", "Help & Contact"])
     with tab1:
         with st.expander("Try some examples", expanded = False):
             image_index = image_select(
