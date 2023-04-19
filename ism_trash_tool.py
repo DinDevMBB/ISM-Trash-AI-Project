@@ -104,7 +104,7 @@ def main():
             time = preds['time']
             st.markdown("### Fun facts about the prediction above:")
             st.markdown(f'Proportion of image predicted as waste: {round(100*area_covered/area_total, 0)}%')
-            st.markdown(f'Time it took for the model to predict: {round(time, 2)} second(s)')
+            st.markdown(f'Time it took for the model to predict: {round(1000 * time, 3)} second(s)')
         else:
             st.divider()
             st.markdown("<h4 style='text-align: center;'>Please upload an image or select an example above to begin</h4>", unsafe_allow_html=True)
