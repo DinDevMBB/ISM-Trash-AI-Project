@@ -14,7 +14,7 @@ def create_array():
     directory =  os.path.join(os.getcwd(), "images")
     images = []
     image_names = []
-    for filename in os.listdir(directory):
+    for filename in os.listdir(directory).sort():
         if filename.endswith(".jpg") or filename.endswith(".jpeg") or filename.endswith(".png"):
             images.append(os.path.join(directory, filename))
             image_names.append(filename.split(".")[0])
