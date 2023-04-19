@@ -129,7 +129,7 @@ def main():
                     2. Open the application and list location coordinates or an address in the search bar 
                         - You can look around using the zoom slider and movement joysticks at the top right of the 3D viewer
                     """)
-        st.image("GEP Toolbar.JPG")
+        st.image("GEP Toolbar.jpg")
         st.markdown("""
                     3. Zoom in to an altitude of around 200 feet (You can see the altitude at the bottom of the 3D viewer)
                     4. Uncheck all the layers (except Terrain) in the bottom right window (Layers panel)
