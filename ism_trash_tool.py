@@ -82,7 +82,7 @@ def main():
                 y2 = box['y'] + box['height'] / 2
                 draw.rectangle([x1, y1, x2, y2], fill = (44, 103, 236, 50), outline=color, width=6)
                 font = ImageFont.truetype("OpenSans-Regular.ttf", 25)
-                text = f"{round(100 * box['confidence'], 0)}% confidence"
+                text = f"{round(100 * box['confidence'], 0)}% "
                 text_size = font.getsize(text)
                 button_size = (text_size[0]+30, text_size[1]+20)
                 button_img = Image.new('RGB', button_size, color)
@@ -132,10 +132,10 @@ def main():
                     """)
         st.image("GEP Toolbar.jpg")
         st.markdown("""
-                    3. Zoom in to an altitude of around 200 feet (You can see the altitude at the bottom of the 3D viewer)
-                    4. Uncheck all the layers (except Terrain) in the bottom right window (Layers panel)
-                    5.  Select the clock icon and select a date between 2018 and 2019 that has a relatively high resolution satellite image capture for best accuracy
-                    6.  Save the image for uploading purposes!
+                    3. Select the clock icon and select a date between 2018 and 2019 that has a relatively high resolution satellite image capture for best accuracy
+                    4. Zoom in to an altitude of around 200 feet (You can see the altitude at the bottom of the 3D viewer)
+                    5. Uncheck all the layers (except Terrain) in the bottom right window (Layers panel)
+                    6. Save the image for uploading purposes!
                         - Take a screenshot of the terrain and crop out the surrounding elements
                         Or alternatively
                         - Select the save icon in the toolbar (3rd from the left), and download an approximately 1920 x 1080 image
