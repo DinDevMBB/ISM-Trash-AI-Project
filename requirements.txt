@@ -2,3 +2,4 @@ streamlit == 1.21.*
 streamlit_image_select
 roboflow
 pillow == 9.4.0
+requests == 2.29.0
