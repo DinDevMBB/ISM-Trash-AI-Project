@@ -8,7 +8,7 @@
 - Streamlit
 
 ### Credits
-- [Global Plastic Watch] (https://globalplasticwatch.org/)
+- [Global Plastic Watch](https://globalplasticwatch.org/)
 
 ### Biggest Challenges faced
 - Image Annotation (Data preparation)
