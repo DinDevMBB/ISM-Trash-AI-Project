@@ -22,7 +22,7 @@ def create_array():
     return images, image_names
 def main():
     st.set_page_config(layout="wide")
-    st.title("Environmental Waste Detection Through Neural Networks")
+    st.title("Environmental Waste Detection Through AI")
     image = None
     paths, image_names = create_array()
     tab1, tab2, tab3 = st.tabs(["Model", "Find your own image", "Help & Contact"])
