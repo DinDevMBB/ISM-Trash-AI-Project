@@ -1,7 +1,15 @@
 # ISM-Trash-AI-Project
 
 ### Hosts deployed computer vision model @ [aiwastedetection.streamlit.app](https://aiwastedetection.streamlit.app/)
-### Implements Roboflow API, and Streamlit libraries
+### Technologies Used
+- Google Earth Pro
+- CVAT (Computer Vision Annotation Tool)
+- Roboflow
+- Streamlit
+
+### Credits
+- [Global Plastic Watch] (https://globalplasticwatch.org/)
+
 ### Biggest Challenges faced
 - Image Annotation (Data preparation)
 - Keeping a consistent methodology while creating model
